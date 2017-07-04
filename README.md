@@ -61,7 +61,7 @@ It passes error code and message as well as additional data, which is accessible
 ### Contributing and testing
 
 Any contribution is highly welcomed. If you want to run tests provide `RANDOMORG_LOGIN` and 
-`RANDOMORG_PASSWORD` environment variables. Tests can initialize them from `.env` file. 
+`RANDOMORG_PASSWORD` environment variables. They can be automatically initialized them from `.env` file. 
 Just specify them as follows:
 ```.env
 RANDOMORG_LOGIN=your_random_org_login
