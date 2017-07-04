@@ -9,6 +9,7 @@
 
 use naffiq\randomorg\DrawService;
 use naffiq\randomorg\Draw;
+use naffiq\randomorg\DrawResponse;
 
 class DrawServiceTest extends \PHPUnit\Framework\TestCase
 {
@@ -54,9 +55,15 @@ class DrawServiceTest extends \PHPUnit\Framework\TestCase
         ], 1, 'test');
 
         $result = $service->holdDraw($draw);
-        var_dump($result);
 
         $this->assertNotEmpty($result);
-//        $this->assertN
+        $this->assertInstanceOf(DrawResponse::class, $result);
+        $this->assertCount(1, $result->getWinners());
+        $this->assertNull($result->getDrawId());
+        $this->assertEquals('test', $result->getStatus());
+        $this->assertEquals(3, $result->getEntryCount());
+        $this->assertNotNull($result->getCompletionTime());
+        $this->assertNull($result->getRecordUrl());
+        $this->assertEquals(2, $result->getId());
     }
 }
