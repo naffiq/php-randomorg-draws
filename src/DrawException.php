@@ -48,7 +48,7 @@ class DrawException extends \Exception
     /**
      * @return array
      */
-    public function getData(): array
+    public function getData()
     {
         return $this->data;
     }
