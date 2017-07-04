@@ -46,7 +46,15 @@ class DrawService
     {
 
         $curl = new Curl();
+
+        /**
+         * @var $response \stdClass
+         */
         $response = $curl->post('https://draws.random.org/api/json-rpc/2/invoke', json_encode($this->getHoldDrawParams($draw)));
+
+        if (!empty($response->error)) {
+            throw new DrawException($response->error->message, $response->error->code, $response->error->data);
+        }
 
         return new DrawResponse($response);
     }

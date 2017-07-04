@@ -10,6 +10,7 @@
 use naffiq\randomorg\DrawService;
 use naffiq\randomorg\Draw;
 use naffiq\randomorg\DrawResponse;
+use naffiq\randomorg\DrawException;
 
 class DrawServiceTest extends \PHPUnit\Framework\TestCase
 {
@@ -65,5 +66,20 @@ class DrawServiceTest extends \PHPUnit\Framework\TestCase
         $this->assertNotNull($result->getCompletionTime());
         $this->assertNull($result->getRecordUrl());
         $this->assertEquals(2, $result->getId());
+    }
+    public function testHoldDrawException()
+    {
+        $service = new DrawService($this->_login, $this->_password);
+
+        $this->expectException(DrawException::class);
+
+        $draw = $service->newDraw('Test', 2, [], 0, 'test');
+
+        try {
+            $service->holdDraw($draw);
+        } catch (DrawException $exception) {
+            $this->assertNotNull($exception->getData());
+            throw $exception;
+        }
     }
 }
