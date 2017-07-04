@@ -60,7 +60,7 @@ It passes error code and message as well as additional data, which is accessible
 
 ### Contributing and testing
 
-Any contribution is highly welcomed. If you want to run test provide `RANDOMORG_LOGIN` and 
+Any contribution is highly welcomed. If you want to run tests provide `RANDOMORG_LOGIN` and 
 `RANDOMORG_PASSWORD` environment variables. Tests can initialize them from `.env` file. 
 Just specify them as follows:
 ```.env
