@@ -27,6 +27,6 @@ class DrawTest extends \PHPUnit\Framework\TestCase
         $this->assertEquals(2, $draw->getEntriesCount());
 
         $draw->setEntries([1, 2, [3]]);
-        $this->assertEquals(3, $draw->getEntriesCount());
+        $this->assertCount(3, $draw->getParams()['entries']);
     }
 }
