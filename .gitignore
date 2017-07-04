@@ -1,0 +1,5 @@
+/vendor
+test_data.js
+.env
+/build
+.idea
